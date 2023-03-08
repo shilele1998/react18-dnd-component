@@ -1,0 +1,22 @@
+{
+  "name": "react18-dnd-component",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/shilele1998/react18-dnd-component.git",
+  "author": "shiyue",
+  "license": "MIT",
+  "scripts": {
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+  },
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^2.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
