@@ -1,11 +1,19 @@
 {
+  "private": true,
   "name": "react18-dnd-component",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/shilele1998/react18-dnd-component.git",
-  "author": "shiyue",
-  "license": "MIT",
   "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "eslint": "eslint src --ext .ts",
+    "eslint:fix": "eslint src --ext .ts --fix",
+    "test:coverage": "umi-test --coverage",
+    "prepublishOnly": "npm run build",
     "changelogs": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
@@ -14,12 +22,47 @@
       "commit-msg": "validate-commit-msg"
     }
   },
+  "files": [
+    "dist"
+  ],
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.0.0"
+  },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^13.0.0",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "@umijs/fabric": "^2.8.1",
+    "@umijs/test": "^3.0.5",
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
+    "dumi": "^1.1.0",
+    "eslint": "^8.35.0",
+    "father": "^4.0.0-rc.2",
+    "gh-pages": "^3.0.0",
     "husky": "^8.0.3",
-    "validate-commit-msg": "^2.14.0"
+    "i": "^0.3.7",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "typescript": "^4.9.5",
+    "validate-commit-msg": "^2.14.0",
+    "yorkie": "^2.0.0"
   },
   "config": {
     "commitizen": {
