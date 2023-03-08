@@ -6,12 +6,19 @@
   "author": "shiyue",
   "license": "MIT",
   "scripts": {
+    "changelogs": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "validate-commit-msg"
+    }
   },
   "devDependencies": {
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
     "validate-commit-msg": "^2.14.0"
   },
   "config": {
